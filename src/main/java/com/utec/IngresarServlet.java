@@ -15,6 +15,7 @@ public class IngresarServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
     
+	// se inicializa con 0L
     private static Long contador = 0L;
 
 	/**
@@ -22,7 +23,9 @@ public class IngresarServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		contador++;
+		
         request.setAttribute("identificador", contador);
         
         request.getRequestDispatcher("MostrarDato.jsp").forward(request, response);

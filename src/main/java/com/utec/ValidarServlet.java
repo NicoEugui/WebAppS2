@@ -46,15 +46,17 @@ public class ValidarServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		try {
+			
 			String nombre = request.getParameter("nombre");
 			String edad = request.getParameter("edad");
 			String direccion = request.getParameter("direccion");
 			String tel = request.getParameter("tel");
 
+			// verifica si el parámetro "nombre" no es nulo y no está vacío
 			if (nombre != null && !nombre.isEmpty()) {
-			    // Procesar los datos y redirigir a página correspondiente
 			    Usuario usuario = new Usuario(nombre, edad, direccion, tel);
 			    request.setAttribute("usuario", usuario);
+			    //redirige la solicitud a "/ingresar" que esta en IngresarServlet.java
 			    RequestDispatcher rd = request.getRequestDispatcher("/ingresar");
 	            rd.forward(request, response);
 			} else {
